@@ -10,7 +10,7 @@
 
 **FoodLensApp** is a fast and responsive cross-platform desktop application for searching and extracting data from Excel files. Built using Python with PyQt6 and compiled to native code using Nuitka, it offers a lightweight and efficient experience across Linux, Windows, and macOS.
 
----
+
 
 ## ✨ Features
 
@@ -21,16 +21,17 @@
 - 🎨 **Simple UI**: Clean, intuitive interface with PyQt6.
 - 📦 **Standalone Executable**: No Python runtime required.
 
----
+
 
 ## 📦 Installation
 
 ### Linux
 
 1. Extract the compiled archive:
+
    ```bash
    tar -xzf FoodLensApp_Linux.tar.gz
-````
+
 
 2. (Optional) Move to a system path:
 
@@ -48,7 +49,7 @@
 
 Executables should be compiled on those platforms using Nuitka. Cross-compilation is not fully supported at this time.
 
----
+
 
 ## 🛠️ Build Instructions (Developer)
 
@@ -97,6 +98,6 @@ food_lens2/
 
 Made for chefs, analysts, and inventory managers.
 
-```
+
 
 

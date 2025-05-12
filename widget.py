@@ -3,9 +3,9 @@ import re
 import pandas as pd
 from PyQt6.QtWidgets import (
     QFileDialog, QMessageBox, QAbstractItemView, QHeaderView, QTableWidgetItem, QMenu,
-    QVBoxLayout, QHBoxLayout, QSizePolicy, QApplication, QWidget
+    QVBoxLayout, QHBoxLayout, QSizePolicy, QApplication, QWidget,
 )
-from PyQt6.QtGui import QAction
+from PyQt6.QtGui import ( QAction, QIcon )
 from PyQt6 import QtCore
 
 from form_ui import Ui_Widget  # Assuming you have this form UI class
@@ -16,9 +16,13 @@ class ItemSearchApp(QWidget, Ui_Widget):
         super().__init__()
         self.setupUi(self)
 
+        # Set the window title (app name) and window icon
+        self.setWindowTitle("Food Lens")  # Customize your app name here
+        self.setWindowIcon(QIcon("/home/craftworkson/Desktop/yoda-icon.png"))  # Set app icon
+
+
         self.tableWidget.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.tableWidget.customContextMenuRequested.connect(self.show_context_menu)
-
 
         # Set up main layout
         main_layout = QVBoxLayout(self)
@@ -41,6 +45,7 @@ class ItemSearchApp(QWidget, Ui_Widget):
         self.setLayout(main_layout)
 
 
+
         # Table properties
         self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectItems)
         self.tableWidget.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
@@ -49,6 +54,11 @@ class ItemSearchApp(QWidget, Ui_Widget):
         self.tableWidget.setHorizontalHeaderLabels(["Sheet", "Summary", "Price"])
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
+
+        # Set default column widths to ensure they aren't too narrow initially
+        self.tableWidget.setColumnWidth(0, 150)  # "Sheet"
+        self.tableWidget.setColumnWidth(1, 300)  # "Summary"
+        self.tableWidget.setColumnWidth(2, 100)  # "Price"
 
         # Connect buttons
         self.pushButton_SelectFile.clicked.connect(self.select_file)
@@ -123,10 +133,11 @@ class ItemSearchApp(QWidget, Ui_Widget):
             if row_idx == 0:
                 QMessageBox.information(self, "No Results", "No items found.")
 
+            # Resize the columns based on content
+            self.tableWidget.resizeColumnsToContents()
+
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to read file:\n{str(e)}")
-
-
 
 
 if __name__ == "__main__":
@@ -134,6 +145,7 @@ if __name__ == "__main__":
     window = ItemSearchApp()
     window.show()
     sys.exit(app.exec())
+
 
 
 

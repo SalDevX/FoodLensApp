@@ -29,18 +29,24 @@
     <rect>
      <x>670</x>
      <y>30</y>
-     <width>80</width>
+     <width>131</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
     color: #000;              /* black text */
     font-family: &quot;Segoe UI&quot;;
-    font-size: 12pt;</string>
+    font-size: 10pt;</string>
    </property>
    <property name="text">
-    <string>Search</string>
+    <string> Search Item</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -107,6 +113,12 @@
      <width>111</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Select File</string>

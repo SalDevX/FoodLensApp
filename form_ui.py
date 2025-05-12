@@ -21,11 +21,15 @@ class Ui_Widget(object):
 "        font-size: 10pt;\n"
 "    ")
         self.pushButton = QtWidgets.QPushButton(parent=Widget)
-        self.pushButton.setGeometry(QtCore.QRect(670, 30, 80, 25))
+        self.pushButton.setGeometry(QtCore.QRect(670, 30, 131, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("\n"
 "    color: #000;              /* black text */\n"
 "    font-family: \"Segoe UI\";\n"
-"    font-size: 12pt;")
+"    font-size: 10pt;")
         self.pushButton.setObjectName("pushButton")
         self.tableWidget = QtWidgets.QTableWidget(parent=Widget)
         self.tableWidget.setGeometry(QtCore.QRect(50, 80, 901, 651))
@@ -50,6 +54,10 @@ class Ui_Widget(object):
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton_SelectFile = QtWidgets.QPushButton(parent=Widget)
         self.pushButton_SelectFile.setGeometry(QtCore.QRect(240, 30, 111, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.pushButton_SelectFile.setFont(font)
         self.pushButton_SelectFile.setObjectName("pushButton_SelectFile")
         self.lineEdit_2 = QtWidgets.QLineEdit(parent=Widget)
         self.lineEdit_2.setGeometry(QtCore.QRect(50, 30, 181, 25))
@@ -65,7 +73,7 @@ class Ui_Widget(object):
     def retranslateUi(self, Widget):
         _translate = QtCore.QCoreApplication.translate
         Widget.setWindowTitle(_translate("Widget", "Widget"))
-        self.pushButton.setText(_translate("Widget", "Search"))
+        self.pushButton.setText(_translate("Widget", " Search Item"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Widget", "Sheet"))
         item = self.tableWidget.horizontalHeaderItem(1)
